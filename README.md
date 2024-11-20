@@ -13,9 +13,12 @@ You may try with different seeds to get better result.
 ## Usage
 
 ```bash
-cd src
-make
+mkdir build && cd build
+cmake .. -DCMAKE_BUILD_TYPE=Release
+make -j
 ./main -i ../armadillo.obj -m ../armadillo_manifold.obj -n 64
+tungsten preview.json
+// see demo.png in build folder
 ```
 
 It outputs to `stdout` and logs to `stderr`.

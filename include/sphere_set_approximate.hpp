@@ -1,6 +1,7 @@
 #include <vector>
 #include <algorithm>
 #include <map>
+#include <cassert>
 
 #include "sov.hpp"
 #include "rtcore/mesh.hpp"
@@ -121,7 +122,7 @@ std::tuple<std::vector<Sphere>, std::vector<PointSet>>
 				best = i;
 			}
 		}
-		assert(!isinf(bestdelta));
+		assert(!std::isinf(bestdelta));
 		// add this point to corresponding cluster
 		cluster[best].push_back(points[*pcur[best]]);
 		sphere[best].radius = norm(points[*pcur[best]] - center[best]);

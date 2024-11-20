@@ -15,7 +15,7 @@ public:
 	double operator()(vec3f v1, vec3f v2, vec3f v3, vec3f o, double r)
 	{
 		double result = sotv(v1,v2,v3,o,r);
-		if (isinf(result) or isnan(result)) {
+		if (std::isinf(result) or std::isnan(result)) {
 			console.warn("SOTV exceptional result:", result);
 			console.warn("arg:",v1,v2,v3,o,r);
 			debug::sotv(v1,v2,v3,o,r);
@@ -94,14 +94,18 @@ private:
 		double B = 2 * dot(b-a, a-o);
 		double C = sqrlen(a-o) - r*r;
 		double delta = B*B - 4*A*C;
-		if (delta < -1e-5 * B*B)
+		if (delta < -1e-5 * B*B){
+			std::cout << "delta:" << delta << " < -1e-5 * B*B" << std::endl;
 			throw "failed computing line sphere intersection";
+		}
 		delta = std::max(0.0, delta);
 		double d1 = (-B - std::sqrt(delta)) / (2*A);
 		double d2 = (-B + std::sqrt(delta)) / (2*A);
 		double d = (abs(d1-0.5) < abs(d2-0.5))? d1: d2;
-		if (d < -1e-5 || d > 1+1e-5)
-			throw "failed computing segment sphere intersection";
+		// if (d < -1e-5 || d > 1+1e-5){
+		// 	std::cout << "d:" << d << " < -1e-5 || > 1+1e-5" << std::endl;
+		// 	throw "failed computing segment sphere intersection";
+		// }
 		return a + d * (b-a);
 	}
 

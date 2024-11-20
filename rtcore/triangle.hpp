@@ -1,5 +1,5 @@
 #pragma once
-
+#include <cassert>
 #include "aabox.hpp"
 #include "math/matmath.hpp"
 #include "sampler.hpp"

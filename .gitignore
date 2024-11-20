@@ -4,3 +4,4 @@ main
 *.gch
 scene.json
 *.o
+build/

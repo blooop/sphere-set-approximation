@@ -33,7 +33,7 @@ int main(int argc, const char* argv[])
         OPT_STRING('m', "manifold", &manifoldpath, "simplified manifold of input mesh"),
         OPT_INTEGER('n', "sphere", &n_sphere, "number of spheres to construct, default=64"),
         OPT_INTEGER(0, "inner", &n_innersample, "number of inner sample points, default=8000"),
-        OPT_INTEGER(0, "surface", &n_surfacesample, "number of surface sample points, default=4000"),
+        OPT_INTEGER('s', "surface", &n_surfacesample, "number of surface sample points, default=4000"),
         OPT_INTEGER(0, "final", &n_finalsample, "number of final coverage samples, default=100000"),
         OPT_INTEGER(0, "mutate", &n_mutate, "number of global optima explorations, default=10"),
         OPT_INTEGER(0, "seed", &seed, "seed of random number generator"),
