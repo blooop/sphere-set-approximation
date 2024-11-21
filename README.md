@@ -2,7 +2,7 @@
 
 Approximate a mesh by bounding it with a set of spheres, which can be used for collision detection, shadowing, etc.
 
-![demo](demo.jpg)
+![demo](attachments/demo.jpg)
 
 Integrate [hjwdzh/Manifold](https://github.com/hjwdzh/Manifold) and [111116/sphere-set-approximation](https://github.com/111116/sphere-set-approximation)
 
