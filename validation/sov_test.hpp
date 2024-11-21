@@ -3,7 +3,7 @@
 
 #pragma once
 
-#include "lib/consolelog.hpp"
+#include "consolelog.hpp"
 #include "sotv.hpp"
 #include "sotv_ref.hpp"
 #include "sov.hpp"
