@@ -43,7 +43,7 @@ void visualize(std::vector<Sphere> spheres, std::string visualizer_mesh_filename
 		fout << "{\"type\": \"sphere\",\"transform\":{\"position\":["
 		<< sph.center.x << "," << sph.center.y << "," << sph.center.z << "],\"scale\":" << sph.radius << "},\"bsdf\":{\"type\":\"lambert\",\"ior\":1.3,\"albedo\":[1,0.6,0.6]}},\n";
 	}
-    fout << "{\"type\": \"skydome\",\"temperature\": 4777.0,\"gamma_scale\": 1.0,\"turbidity\": 3.0,\"intensity\": 6.0,\"sample\": true},";
+    fout << "{\"type\": \"skydome\",\"temperature\": 4777.0,\"gamma_scale\": 1.0,\"turbidity\": 3.0,\"intensity\": 6.0,\"sample\": true}";
 	fout << "],\n";
 	fout << "\"camera\":{\"resolution\":[2048,2048],\"transform\":{";
 	// print camera pos
@@ -52,8 +52,7 @@ void visualize(std::vector<Sphere> spheres, std::string visualizer_mesh_filename
 	fout << "},";
 	fout << "\"type\":\"pinhole\",\"fov\":40},\n";
     fout << "\"integrator\": {\"min_bounces\": 0,\"max_bounces\": 16,\"type\": \"path_tracer\"},\n";
-	fout << "\"renderer\": {\"scene_bvh\": true,\"spp\": 16,\"output_file\": \"" << name << "\"},\n";
-    // fout << "\"renderer\": {\"scene_bvh\": true,\"spp\": 16,\"output_file\": \"demo.png\"},\n";
+	fout << "\"renderer\": {\"scene_bvh\": true,\"spp\": 16,\"output_file\": \"" << name << "\"}\n";
     fout << "}\n";
 }
 
