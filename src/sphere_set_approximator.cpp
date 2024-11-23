@@ -1,6 +1,6 @@
 #include "sphere_set_approximator.hpp"
 
-void SphereSetApproximator::simplify(std::string input_file, std::string output_obj, int max_faces, double max_ratio, double max_cost, bool check_manifold) {
+void sphere_set_approximator::simplify(std::string input_file, std::string output_obj, int max_faces, double max_ratio, double max_cost, bool check_manifold) {
     Eigen::MatrixXd V, OV;
     Eigen::MatrixXi F, OF;
     Eigen::VectorXi J, I;
@@ -160,7 +160,7 @@ void SphereSetApproximator::simplify(std::string input_file, std::string output_
     igl::write_triangle_mesh(output_obj, V, F);
 }
 
-void SphereSetApproximator::manifold(std::string input_file, std::string output_file, int resolution) {
+void sphere_set_approximator::manifold(std::string input_file, std::string output_file, int resolution) {
     char* modifiableInFilename = new char[strlen(input_file.c_str()) + 1]; 
     strcpy(modifiableInFilename, input_file.c_str());
     Model_OBJ obj;
@@ -171,7 +171,7 @@ void SphereSetApproximator::manifold(std::string input_file, std::string output_
     obj.SaveOBJ(modifiableOutFilename);
 }
 
-void SphereSetApproximator::manifold_simple(const std::string &input_file, const std::string &output_file, const sphere_set_approximator_params &params) {
+void sphere_set_approximator::manifold_simple(const std::string &input_file, const std::string &output_file, const sphere_set_approximator_params &params) {
     // 将 manifold 结果保存到临时文件
     std::stringstream ss;
     ss << time(0);
@@ -185,8 +185,7 @@ void SphereSetApproximator::manifold_simple(const std::string &input_file, const
     remove(tmp_file.c_str());
 }
 
-
-bool SphereSetApproximator::approximate_spheres(const std::string &input_file, const std::string &pt_output_file, const sphere_set_approximator_params &params) {
+bool sphere_set_approximator::approximate_spheres(const std::string &input_file, const std::string &pt_output_file, const sphere_set_approximator_params &params) {
     
     std::stringstream ss;
     ss << time(0);

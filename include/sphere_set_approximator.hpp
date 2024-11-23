@@ -28,47 +28,42 @@
 
 extern int g_sharp;
 
-struct sphere_set_approximator_params {
-    int resolution;
-    int max_faces;
-    double max_ratio;
-    double max_cost;
-    bool check_manifold;
+namespace sphere_set_approximator{
 
-    int n_sphere;
-    int n_innersample;
-    int n_surfacesample;
-    int n_finalsample;
-    int n_mutate;
-    int seed;
+    struct sphere_set_approximator_params {
+        int resolution;
+        int max_faces;
+        double max_ratio;
+        double max_cost;
+        bool check_manifold;
 
-    sphere_set_approximator_params() {
-        resolution = 20000;
-        max_faces = 0x7fffffff;
-        max_ratio = 0.5;
-        max_cost = 0.1;
-        check_manifold = true;
+        int n_sphere;
+        int n_innersample;
+        int n_surfacesample;
+        int n_finalsample;
+        int n_mutate;
+        int seed;
 
-        n_sphere = 64;
-        n_innersample = 8000;
-        n_surfacesample = 4000;
-        n_finalsample = 100000;
-        n_mutate = 10;
-        seed = 19260817;
-    }
-};
+        sphere_set_approximator_params() {
+            resolution = 20000;
+            max_faces = 0x7fffffff;
+            max_ratio = 0.5;
+            max_cost = 0.1;
+            check_manifold = true;
 
-class SphereSetApproximator
-{
-private:
+            n_sphere = 64;
+            n_innersample = 8000;
+            n_surfacesample = 4000;
+            n_finalsample = 100000;
+            n_mutate = 10;
+            seed = 19260817;
+        }
+    };
+
     void simplify(std::string input_file, std::string output_obj, int max_faces, double max_ratio, double max_cost, bool check_manifold);
     void manifold(std::string input_file, std::string output_file, int resolution);
     void manifold_simple(const std::string &input_file, const std::string &output_file, const sphere_set_approximator_params &params);
-
-public:
-    SphereSetApproximator(/* args */){};
-    ~SphereSetApproximator(){};
     bool approximate_spheres(const std::string &input_file, const std::string &pt_output_file, const sphere_set_approximator_params &params);
-};
+}
 
 #endif

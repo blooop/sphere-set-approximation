@@ -16,6 +16,16 @@ The manifold must be closed and orientable.
 
 ```bash
 sh ./demo.sh
+
+// tungsten render
+cd ~/workspace/3rd_party
+git clone git@github.com:tunabrain/tungsten.git
+cd tungsten
+./setup_builds.sh
+cd builds/release
+make
+echo "alias tungsten="~/workspace/3rd_party/tungsten/build/release/tungsten"" >> ~/.zshrc
+
 tungsten example/armadillo.json
 ```
 

@@ -2,8 +2,7 @@
 
 int main(int argc, const char* argv[])
 {
-	SphereSetApproximator approximator;
-	sphere_set_approximator_params params;
+	sphere_set_approximator::sphere_set_approximator_params params;
 	// parse command line arguments
 	params.resolution = 20000;
 	params.check_manifold = true;
@@ -18,6 +17,6 @@ int main(int argc, const char* argv[])
 	params.n_surfacesample = 4000;
 	params.seed = 19260817;
 
-	approximator.approximate_spheres(argv[1], argv[2], params);
+	sphere_set_approximator::approximate_spheres(argv[1], argv[2], params);
 	return 0;
 }
