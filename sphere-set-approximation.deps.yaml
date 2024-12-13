@@ -1,0 +1,21 @@
+apt_tools:
+  - git
+  - git-lfs
+  - python3-pip
+  - jq #for auto installing extensions in container
+  - openssh-client #for cloning tungsten
+  - neovim #for editing text
+
+pip_language-toolchain:
+  - uv #use uv instead of pip
+  - pip #update to the latest pip
+  - pre-commit
+
+apt_language-toolchain:
+  - build-essential
+  - cmake
+
+apt_tungsten:
+  - qtbase5-dev 
+  - qttools5-dev-tools 
+  - libqt5opengl5-dev
