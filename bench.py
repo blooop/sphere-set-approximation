@@ -12,7 +12,7 @@ import os
 from pathlib import Path
 
 class SphereGenerator(bch.ParametrizedSweep):
-    num_spheres = bch.IntSweep(default=1, bounds=(1, 32))
+    num_spheres = bch.IntSweep(default=1, bounds=(1, 64))
     image = bch.ResultImage()
 
     def __call__(self, **kwargs):
@@ -28,10 +28,12 @@ class SphereGenerator(bch.ParametrizedSweep):
         print(output_file)
         output_file = output_file.with_suffix(".json")  
         print(output_file)
+
         cmd= f"/workspaces/sphere-set-approximation/build/main {input_path} {output_file} {num_spheres}"
         print(cmd) 
-        os.system(cmd)
-        os.system(f"tungsten {output_file}")
+        if not output_file.exists():
+            os.system(cmd)
+        os.system(f"/workspaces/sphere-set-approximation/3rd_party/tungsten/build/release/tungsten {output_file}")
         return output_file.with_suffix(".png")
 
 
@@ -44,7 +46,7 @@ if __name__ == "__main__":
     bench_run = bch.BenchRunner("bench_runner_test")
     bench_run.add_run(sphere_gen)
     bench_run.run(show=True)
-    # bench_run.run(level =2,show=True)
+    # bench_run.run(level =2,show=True,use_cache=False)
 
     # run_cfg = bch.BenchRunCfg()   
     # run_cfg.use_sample_cache = True
