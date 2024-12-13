@@ -39,3 +39,5 @@ example/*.json
 *.exe
 *.out
 *.app
+
+3rd_party/
