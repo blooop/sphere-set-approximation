@@ -13,3 +13,4 @@ args:
   - pull 
   - deps
   - git 
+  - pixi
