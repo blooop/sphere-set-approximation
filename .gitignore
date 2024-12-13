@@ -41,3 +41,4 @@ example/*.json
 *.app
 
 3rd_party/
+cachedir/
