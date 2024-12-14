@@ -14,3 +14,5 @@ args:
   - deps
   - git 
   - pixi
+  - nocleanup
+  - fzf
