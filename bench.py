@@ -45,16 +45,4 @@ def sphere_gen(run_cfg=None,report=None):
 if __name__ == "__main__":
     bench_run = bch.BenchRunner("bench_runner_test")
     bench_run.add_run(sphere_gen)
-    bench_run.run(show=True)
-    # bench_run.run(level =2,show=True,use_cache=False)
-
-    # run_cfg = bch.BenchRunCfg()   
-    # run_cfg.use_sample_cache = True
-    # run_cfg.only_hash_tag = True
-    # run_cfg.level =4
-    # # run_cfg.executor = bch.Executors.MULTIPROCESSING
-    # bench = SphereGenerator().to_bench(run_cfg)
-    
-    # bench.plot_sweep()
-
-    # bench.report.show()
+    bench_run.run(level=6,show=True,save=True)
