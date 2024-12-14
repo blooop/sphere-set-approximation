@@ -1,7 +1,7 @@
 
 #!/usr/bin/env -S uv run
 # /// script
-# dependencies = ["holobench[rerun]==1.32.0"]
+# dependencies = ["holobench[rerun]==1.33.0"]
 # ///
 
 import bencher as bch
@@ -43,6 +43,6 @@ def sphere_gen(run_cfg=None,report=None):
     return bench
 
 if __name__ == "__main__":
-    bench_run = bch.BenchRunner("bench_runner_test")
+    bench_run = bch.BenchRunner("bench_runner_test",publisher=bch.GithubPagesCfg("blooop", "sphere-set-approximation"))
     bench_run.add_run(sphere_gen)
-    bench_run.run(level=6,show=True,save=True)
+    bench_run.run(level=6,show=True,publish=True)
